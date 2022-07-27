@@ -1,5 +1,4 @@
 import sys
-
 import montador
 import dumper
 import loader
@@ -25,14 +24,24 @@ def help():
     print("clear [mem/reg/all] - Limpa o conteúdo da memória/acumulador/ambos")
 
 def info():
-    pass
+    global quiet 
+    quiet = not quiet
 
 def dump(inicio=0, fim=-1):
     dumper.le_memoria(memoria, inicio, fim)
 
 def load(arquivo_de_instrucoes="Instrucoes.txt"):
-    loader = loader.Loader(memoria, arquivo_de_instrucoes)
-    loader.read_and_store()
+    localLoader = loader.Loader(memoria, arquivo_de_instrucoes)
+    loader.read_and_store(quiet)
+
+def mount():
+    pass
+
+def run():
+    pass
+
+def clear():
+    pass
 
 def exit():
     sys.exit(0)
@@ -51,13 +60,15 @@ comandos = {
     "exit" : exit
 }
 
+quiet = True
+
 if __name__ == "__main__":
     print("Interpretador de assembly v0.2")
     print("Digite h para uma lista de comandos")
     print("Pressione ^D ou ^C para sair")
     
     memoria = []
-
+      
     while True:
         try:
             entrada = input(">>> ").split(' ')

@@ -19,14 +19,14 @@ class Loader(object):
             
         return num_bin
     
-    def read_and_store(self):
+    def read_and_store(self, quiet=True):
         with open(self.instrucoes) as instru:
             for num_linha, instrução in enumerate(instru):
                 # a primeira linha é *sempre* ignorada
                 if num_linha == 0:
                     continue
     
-                write(hex_to_bin(instrução))
+                write(hex_to_bin(instrução, quiet))
     
     def write(self, dados, endereco_base=""):
         self.memoria.append(dados)
