@@ -1,4 +1,6 @@
 import sys
+import fire
+
 import montador
 import dumper
 
@@ -9,7 +11,7 @@ import dumper
 # type: usuário pode digitar assembly livremente na memória interna do programa
 # mount: chama o montador no arquivo especificado e traduz assembly para hexadecimal
 # run: roda o arquivo, enviando-o ao processador (processador é interno ao programa)
-# clear: coloca uma string vazia 
+# clear: coloca uma string vazia
 
 def help():
     print("help, h - Mostra a lista de comandos disponíveis e suas ações")
@@ -24,8 +26,21 @@ def help():
 def info():
     pass
 
-def dump(inicio=0, fim=-1):
-    dumper.le_arquivo("memoria.txt", inicio, fim)
+def dump(arquivo="Memoria.txt", inicio=0, fim=-1):
+    dumper.le_arquivo(arquivo, inicio, fim)
+
+comandos = {
+    "help": help,
+    "h": help,
+    "info": info,
+    "i": info,
+    "dump": dump,
+    "load": load,
+    "type": type,
+    "mount": mount,
+    "run": run,
+    "clear": clear
+}
 
 if __name__ == "__main__":
     print("Interpretador de assembly v0.1")
@@ -40,23 +55,8 @@ if __name__ == "__main__":
             print()
             sys.exit(0)
 
-        if comando in ("help", "h"):
-            help()
-
-        elif comando in ("info", "i"):
-            pass
-
-        elif comando in ("dump",):
-            dump()
-
-        elif comando in ("load",):
-            pass
-
-        elif comando in ("type",):
-            pass
-
-        elif comando in ("mount",):
-            pass
-
+        if comando in comandos:
+            comandos[comando]()
+        
         else:
             print("Comando não reconhecido.")
