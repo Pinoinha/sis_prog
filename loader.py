@@ -12,7 +12,8 @@ class Loader(object):
         self.instrucoes = instrucoes
     
     def hex_to_bin(self, num, quiet=True):
-        num_bin = bin(int(str(num), base=16))
+        num_hex = montador.traduzir(num)
+        num_bin = bin(int(str(num_hex), base=16))
         
         if not quiet:
             print(num_bin)
@@ -26,7 +27,7 @@ class Loader(object):
                 if num_linha == 0:
                     continue
     
-                write(hex_to_bin(instrução, quiet))
+                self.write(self.hex_to_bin(instrução, quiet))
     
     def write(self, dados, endereco_base=""):
         self.memoria.append(dados)

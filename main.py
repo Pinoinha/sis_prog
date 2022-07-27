@@ -72,7 +72,7 @@ if __name__ == "__main__":
     print("Digite h para uma lista de comandos")
     print("Pressione ^D ou ^C para sair")
     
-    memoria = []
+    memoria = {}
       
     while True:
         try:
