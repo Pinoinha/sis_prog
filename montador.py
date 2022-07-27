@@ -82,4 +82,3 @@ def traduzir(mnemonico):
     if traduções.get(mnemonico) is not None:
         return traduções.get(mnemonico).get("código")
     return mnemonico
-    #return traduções.get(mnemonico).get("código") or mnemonico
