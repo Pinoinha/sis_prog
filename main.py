@@ -1,4 +1,5 @@
 import sys
+
 import montador
 import dumper
 from loader import Loader
@@ -28,11 +29,15 @@ def info():
     quiet = not quiet
 
 def dump(inicio=0, fim=-1):
+    global memoria
     dumper.le_memoria(memoria, inicio, fim)
 
 def load(arquivo_de_instrucoes="Instrucoes.txt"):
-    localLoader = loader.Loader(memoria, arquivo_de_instrucoes)
+    loader = Loader(memoria, arquivo_de_instrucoes)
     loader.read_and_store(quiet)
+
+def type(endereco):
+    pass
 
 def mount():
     pass
