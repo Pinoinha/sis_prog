@@ -30,6 +30,7 @@ def dump(inicio=0, fim=-1):
     global memoria
     dumper.le_memoria(memoria, inicio, fim)
 
+#TODO: definir diferenca de load entre instrucoes e dados 
 def load(arquivo_de_instrucoes="Instrucoes.txt"):
     global memoria
     global quiet
@@ -81,8 +82,13 @@ if __name__ == "__main__":
             print()
             exit()
 
-        if entrada[0] in comandos:
-            comandos[entrada[0]]()
+        comando, *argumentos = entrada
+
+        if comando in comandos:
+            try:
+                comandos[comando](*argumentos)
+            except TypeError:
+                comandos[comando]()
         
         else:
             print("Comando não reconhecido.")

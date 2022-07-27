@@ -51,7 +51,7 @@ traduções = {
         "tamanho": 2
     },
     "CALL": {
-        "código": ("0x9", "0xA", "0xB"),
+        "código": "0x9",
         "instrução": "Chamar subrotina",
         "tamanho": 2
     },
@@ -79,4 +79,6 @@ traduções = {
 
 def traduzir(mnemonico):
     # se o mnemonico não estiver no dicionário, é porque já está em hex
-    return traduções.get(mnemonico).get("código") or mnemonico
+    if traduções.get(mnemonico) is not None:
+        return traduções.get(mnemonico).get("código")
+    return mnemonico

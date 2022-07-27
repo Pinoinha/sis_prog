@@ -14,5 +14,5 @@ def bin_to_hex(num, quiet=True):
 
 def le_memoria(mem_interna, inicio=0, fim=-1):
     for num_linha, conteudo in enumerate(mem_interna):
-        if num_linha in range(inicio, fim):
-            print(bin_to_hex(linha))
+        if (num_linha in range(inicio, fim))or (num_linha >= inicio and fim < 0):
+            print(num_linha,'-',bin_to_hex(conteudo))
