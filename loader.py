@@ -24,6 +24,6 @@ def read_and_store(memoria, instrucoes="Intrucoes.txt", quiet=True):
             # a primeira linha é *sempre* ignorada
             if num_linha == 0:
                 continue
-            
-            write(memoria, hex_to_bin(str(instrução).replace('\r\n',''), quiet))
+            instrução = str(instrução).strip('\r\n')     
+            write(memoria, hex_to_bin(instrução, quiet))
 
