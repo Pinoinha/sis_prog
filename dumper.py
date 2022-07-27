@@ -12,8 +12,7 @@ def bin_to_hex(num, quiet=True):
         
     return num_hex
 
-def le_arquivo(arquivo, inicio=0, fim=-1):
-    with open(arquivo) as memoria:
-        for num_linha, conteudo in memoria:
-            if num_linha in range(inicio, fim):
-                print(bin_to_hex(linha))
+def le_memoria(mem_interna, inicio=0, fim=-1):
+    for num_linha, conteudo in enumerate(mem_interna):
+        if num_linha in range(inicio, fim):
+            print(bin_to_hex(linha))
