@@ -1,4 +1,5 @@
 import sys
+
 import montador
 
 if __name__ == "__main__":
@@ -6,7 +7,7 @@ if __name__ == "__main__":
     sys.exit(1)
 
 class Loader(object):
-    def __init__(self, memoria, instrucoes):
+    def __init__(self, memoria, instrucoes="Intrucoes.txt"):
         self.memoria = memoria,
         self.instrucoes = instrucoes
     
@@ -28,6 +29,4 @@ class Loader(object):
                 write(hex_to_bin(instrução))
     
     def write(self, dados, endereco_base=""):
-        with open(self.memoria, "w") as mem:
-            mem.writelines(endereco_base + "\n")
-            mem.writelines(dado + "\n" for dado in dados)
+        self.memoria.append(dados)

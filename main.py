@@ -28,7 +28,11 @@ def info():
     pass
 
 def dump(inicio=0, fim=-1):
-    dumper.le_memoria(mem_interna, inicio, fim)
+    dumper.le_memoria(memoria, inicio, fim)
+
+def load(arquivo_de_instrucoes="Instrucoes.txt"):
+    loader = loader.Loader(memoria, arquivo_de_instrucoes)
+    loader.read_and_store()
 
 def exit():
     sys.exit(0)
@@ -43,9 +47,9 @@ comandos = {
     "type": type,
     "mount": mount,
     "run": run,
-    "clear": clear
+    "clear": clear,
     "exit" : exit
-    }
+}
 
 if __name__ == "__main__":
     print("Interpretador de assembly v0.2")
@@ -60,7 +64,7 @@ if __name__ == "__main__":
 
         except EOFError:
             print()
-            sys.exit(0)
+            exit()
 
         if entrada[0] in comandos:
             comandos[entrada[0]]()
