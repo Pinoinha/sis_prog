@@ -29,6 +29,9 @@ def info():
 def dump(arquivo="Memoria.txt", inicio=0, fim=-1):
     dumper.le_arquivo(arquivo, inicio, fim)
 
+def exit():
+    sys.exit(0)
+
 comandos = {
     "help": help,
     "h": help,
@@ -40,13 +43,15 @@ comandos = {
     "mount": mount,
     "run": run,
     "clear": clear
-}
+    "exit" : exit
+    }
 
 if __name__ == "__main__":
     print("Interpretador de assembly v0.1")
     print("Digite h para uma lista de comandos")
     print("Pressione ^D para sair")
-
+    
+    memoria[16] = []
     while True:
         try:
             comando = input(">>> ")
