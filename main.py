@@ -2,7 +2,7 @@ import sys
 
 import montador
 import dumper
-import loader
+from loader import Loader
 
 # TODO: criar um vetor "memória" interno ao programa
 
