@@ -51,7 +51,7 @@ traduções = {
         "tamanho": 2
     },
     "CALL": {
-        "código": ("0x9", "0xA", "0xB"),
+        "código": "0x9",
         "instrução": "Chamar subrotina",
         "tamanho": 2
     },

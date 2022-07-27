@@ -30,6 +30,7 @@ def dump(inicio=0, fim=-1):
     global memoria
     dumper.le_memoria(memoria, inicio, fim)
 
+#TODO: definir diferenca de load entre instrucoes e dados 
 def load(arquivo_de_instrucoes="Instrucoes.txt"):
     global memoria
     global quiet
