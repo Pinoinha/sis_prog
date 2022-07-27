@@ -2,7 +2,7 @@ import sys
 
 import montador
 import dumper
-from loader import Loader
+import loader
 
 # info: imprime, para cada operação realizada, o conteúdo do registrador; "verbose global"
 # dump: imprime o que está no memoria.txt entre as linhas especificadas
@@ -32,8 +32,8 @@ def dump(inicio=0, fim=-1):
 
 def load(arquivo_de_instrucoes="Instrucoes.txt"):
     global memoria
-    loader = Loader(memoria, arquivo_de_instrucoes)
-    loader.read_and_store(quiet)
+    global quiet
+    loader.read_and_store(memoria, arquivo_de_instrucoes, quiet)
 
 def type(endereco):
     pass
