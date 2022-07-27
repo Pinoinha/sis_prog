@@ -4,8 +4,6 @@ import montador
 import dumper
 from loader import Loader
 
-# TODO: criar um vetor "memória" interno ao programa
-
 # info: imprime, para cada operação realizada, o conteúdo do registrador; "verbose global"
 # dump: imprime o que está no memoria.txt entre as linhas especificadas
 # load: carrega os dados binários de um arquivo (pode ser o memoria.txt) no vetor interno "memória"
@@ -33,6 +31,7 @@ def dump(inicio=0, fim=-1):
     dumper.le_memoria(memoria, inicio, fim)
 
 def load(arquivo_de_instrucoes="Instrucoes.txt"):
+    global memoria
     loader = Loader(memoria, arquivo_de_instrucoes)
     loader.read_and_store(quiet)
 
@@ -73,7 +72,7 @@ if __name__ == "__main__":
     print("Pressione ^D ou ^C para sair")
     
     memoria = []
-      
+    
     while True:
         try:
             entrada = input(">>> ").split(' ')
