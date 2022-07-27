@@ -43,18 +43,20 @@ if __name__ == "__main__":
         if comando in ("help", "h"):
             help()
 
-        if comando in ("info", "i"):
+        elif comando in ("info", "i"):
             pass
 
-        if comando in ("dump",):
+        elif comando in ("dump",):
+            dump()
+
+        elif comando in ("load",):
             pass
 
-        if comando in ("load"):
+        elif comando in ("type",):
             pass
 
-        if comando in ("type"):
+        elif comando in ("mount",):
             pass
 
-        if comando in ("mount"):
-            pass
-
+        else:
+            print("Comando não reconhecido.")
