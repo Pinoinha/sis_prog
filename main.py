@@ -76,19 +76,15 @@ if __name__ == "__main__":
     
     while True:
         try:
-            entrada = input(">>> ").split(' ')
-
+            comando, *argumentos = input(">>> ").split(' ')
         except (EOFError, KeyboardInterrupt):
             print()
             exit()
-
-        comando, *argumentos = entrada
 
         if comando in comandos:
             try:
                 comandos[comando](*argumentos)
             except TypeError:
                 comandos[comando]()
-        
         else:
             print("Comando não reconhecido.")
