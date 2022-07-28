@@ -26,7 +26,7 @@ def info():
     global quiet 
     quiet = not quiet
 
-def dump(inicio=0, fim=-1):
+def dump(inicio=0, fim=999):
     global memoria
     dumper.le_memoria(memoria, inicio, fim)
 
@@ -78,7 +78,7 @@ if __name__ == "__main__":
         try:
             entrada = input(">>> ").split(' ')
 
-        except EOFError:
+        except (EOFError, KeyboardInterrupt):
             print()
             exit()
 

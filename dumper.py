@@ -12,7 +12,7 @@ def bin_to_hex(num, quiet=True):
         
     return num_hex
 
-def le_memoria(mem_interna, inicio=0, fim=-1):
+def le_memoria(mem_interna, inicio=0, fim=999):
     for num_linha, conteudo in enumerate(mem_interna):
-        if (num_linha in range(inicio, fim))or (num_linha >= inicio and fim < 0):
+        if (num_linha in range(int(inicio), int(fim)+1)) or (num_linha >= int(inicio) and int(fim)+1 < 0):
             print(num_linha,'-',bin_to_hex(conteudo))
