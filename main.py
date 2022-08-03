@@ -39,8 +39,14 @@ def load(arquivo_de_instrucoes="Instrucoes.txt"):
 def type(endereco):
     pass
 
-def mount():
-    pass
+def mount(arquivo):
+    global memoria
+    memoria.clear()
+
+    with open(arquivo) as arq:
+        for linha in arq:
+            hexa = montador.traduzir(str(linha).strip('\r\n'))
+            memoria.append(hexa)
 
 def run():
     pass
