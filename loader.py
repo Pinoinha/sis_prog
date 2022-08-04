@@ -26,4 +26,3 @@ def read_and_store(memoria, instrucoes="Intrucoes.txt", quiet=True):
                 continue
             instrução = str(instrução).strip('\r\n')     
             write(memoria, hex_to_bin(instrução, quiet))
-

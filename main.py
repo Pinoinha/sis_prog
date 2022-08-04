@@ -3,6 +3,7 @@ import sys
 import montador
 import dumper
 import loader
+import processador
 
 # info: imprime, para cada operação realizada, o conteúdo do registrador; "verbose global"
 # dump: imprime o que está no memoria.txt entre as linhas especificadas
@@ -10,7 +11,7 @@ import loader
 # type: usuário pode digitar assembly livremente na memória interna do programa
 # mount: chama o montador no arquivo especificado e traduz assembly para hexadecimal
 # run: roda o arquivo, enviando-o ao processador (processador é interno ao programa)
-# clear: coloca uma string vazia
+# clear: coloca uma string vazia na memoria interna
 
 def help():
     print("help, h - Mostra a lista de comandos disponíveis e suas ações")
@@ -39,7 +40,7 @@ def load(arquivo_de_instrucoes="Instrucoes.txt"):
 def type(endereco):
     pass
 
-def mount(arquivo):
+def mount(arquivo="Instrucoes.txt"):
     global memoria
     memoria.clear()
 
@@ -49,10 +50,10 @@ def mount(arquivo):
             memoria.append(hexa)
 
 def run():
-    pass
+    processador.run()
 
 def clear():
-    pass
+    memoria.clear()
 
 def exit():
     sys.exit(0)
