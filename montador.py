@@ -81,4 +81,4 @@ def traduzir(mnemonico):
     # se o mnemonico não estiver no dicionário, é porque já está em hex
     if traduções.get(mnemonico) is not None:
         return traduções.get(mnemonico).get("código")
-    return mnemonico
+    return hex(int(mnemonico, base=16))
