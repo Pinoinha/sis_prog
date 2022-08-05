@@ -15,14 +15,13 @@ def hex_to_bin(num, quiet=True):
         
     return num_bin
 
-def write(memoria, dados, endereco_base=""):
+def write(memoria, dados):
     memoria.append(dados)
 
-def read_and_store(memoria, instrucoes="Intrucoes.txt", quiet=True):
-    with open(instrucoes) as instru:
-        for num_linha, instrução in enumerate(instru):
-            # a primeira linha é *sempre* ignorada
-            if num_linha == 0:
-                continue
+def read_and_store(memoria, arquivo="Montado.txt", quiet=True):
+    with open(arquivo) as instru:
+        for instrução in instru:
             instrução = str(instrução).strip('\r\n')     
-            write(memoria, hex_to_bin(instrução, quiet))
+            # linhas com '--' são consideradas comentários, e portanto ignoradas
+            if '--' not in instrução:
+                write(memoria, hex_to_bin(instrução, quiet))
